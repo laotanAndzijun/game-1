@@ -6,7 +6,7 @@
 
 实现一个移动端游戏，玩家通过触屏控制角色水平方向移动，接住从屏幕上方落下的元宝。记录玩家规定时间内接住的元宝个数作为一局的分数。
 
-![示例图1](../asset/pic_task_game_yangfan_004.png)
+![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_004.png)
 
 ## 任务时间
 
@@ -39,11 +39,11 @@
 
 - 方案一：固定宽高比，方便布置元素。
 
-    ![示例图1](../asset/pic_task_game_yangfan_001.png)![示例图1](../asset/pic_task_game_yangfan_002.png)
+    ![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_001.png)![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_002.png)
     
 - 方案二：延伸至适应屏幕，原生既视感。
 
-    ![示例图1](../asset/pic_task_game_yangfan_003.png)![示例图1](../asset/pic_task_game_yangfan_008.png)
+    ![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_003.png)![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_008.png)
 
 ### 3. 一个可操控的角色
 
@@ -51,15 +51,15 @@
 
 - 方案一：触击屏幕的任意位置，角色向该位置的对应水平点移动。
 
-    ![示例图1](../asset/pic_task_game_yangfan_005.png)
+    ![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_005.png)
     
 - 方案二：触摸屏幕左半边，角色向左移动；触摸屏幕右半边，角色向右移动。
 
-    ![示例图1](../asset/pic_task_game_yangfan_006.png)
+    ![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_006.png)
 
 - 方案三：触摸角色，拖拽移动。
     
-    ![示例图1](../asset/pic_task_game_yangfan_007.png)
+    ![示例图1](https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/pic_task_game_yangfan_007.png)
 
 - 或者其它合理的触屏操控方案。
 
@@ -99,7 +99,7 @@
 - 换个主题？接果子、接盘子、接妹子……任你想！
 - ……
 
-## 分工
+##分工
 
 - 步骤一由[Kai](https://github.com/jackYin888)负责。
 - 步骤二由[Langrren](https://github.com/langrren)负责。
