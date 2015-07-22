@@ -12,8 +12,11 @@ alert(gWinWidth + "," + gWinHeight);
 //获取canvas对象
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+var width=window.innerWidth;
+var height=window.innerHeight
+canvas.width = width;
+canvas.height = height;
 document.body.appendChild(canvas);
 //元宝图片
 var ybReady=false;
@@ -38,7 +41,7 @@ zcmImage.src="img/zcm.png";
 //渲染画布
 var render =function(){
 	ctx.fillStyle='rgb(32,147,240)';
-	ctx.fillRect(0,0,300,480);
+	ctx.fillRect(0,0,window.width,height);
 	if(ybReady){
 		ctx.drawImage(ybImage,0,0);
 	}
