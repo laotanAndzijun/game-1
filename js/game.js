@@ -3,7 +3,12 @@
  * 根据 http://www.cnblogs.com/Wayou/p/how-to-make-a-simple-html5-canvas-game.html 改编
  * 1.加载角色
  */
-//
+//设置宽高
+gWinHeight = document.body.clientHeight;
+
+gWinWidth = document.body.clientWidth;
+
+alert(gWinWidth + "," + gWinHeight);
 //获取canvas对象
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
