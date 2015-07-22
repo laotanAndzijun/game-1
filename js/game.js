@@ -7,8 +7,14 @@
 //获取canvas对象
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 300;
-canvas.height = 480;
+/*canvas.width = 300;
+canvas.height = 480;*/
+/*自适应设备屏幕*/
+function draw() {
+  var ctx = (a canvas context);
+  ctx.canvas.width  = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+}
 document.body.appendChild(canvas);
 //元宝图片
 var ybReady=false;
