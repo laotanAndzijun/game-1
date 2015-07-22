@@ -11,9 +11,9 @@ var ctx = canvas.getContext("2d");
 canvas.height = 480;*/
 /*自适应设备屏幕*/
 function draw() {
-  var ctx = (a canvas context);
-  ctx.canvas.width  = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+  var ct = (a canvas context);
+  ct.canvas.width  = window.innerWidth;
+  ct.canvas.height = window.innerHeight;
 }
 document.body.appendChild(canvas);
 //元宝图片
