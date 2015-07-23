@@ -96,62 +96,50 @@ window.onload=function(){
 reset();
 
 
-//触摸屏幕事件
+//处理按键
 
-var touchFunc = function(obj,type,func) {
-	//滑动范围在5x5内则做点击处理，s是开始，e是结束
-	var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
-	var sTime = 0, eTime = 0;
-	type = type.toLowerCase();
+//按向上键可以重新开始
+var keysDown={};
+addEventListener('keydown',function(e){
+	keysDown[e.keyCode]=true;
+},false);
 
-	obj.addEventListener("touchstart",function(){
-		sTime = new Date().getTime();
-		init.sx = event.targetTouches[0].pageX;
-		init.sy = event.targetTouches[0].pageY;
-		init.ex = init.sx;
-		init.ey = init.sy;
-		if(type.indexOf("start") != -1) func();
-	}, false);
+addEventListener('keyup',function(e){
+	delete keysDown[e.keyCode];
+},false);
 
-	obj.addEventListener("touchmove",function() {
-		event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动
-		init.ex = event.targetTouches[0].pageX;
-		init.ey = event.targetTouches[0].pageY;
-		if(type.indexOf("move")!=-1) func();
-	}, false);
-
-	obj.addEventListener("touchend",function() {
-		var changeX = init.sx - init.ex;
-		var changeY = init.sy - init.ey;
-		if(Math.abs(changeX)>Math.abs(changeY)&&Math.abs(changeY)>init.y) {
-			//左右事件
-			if(changeX > 0) {
-				if(type.indexOf("left")!=-1) func();
-			}else{
-				if(type.indexOf("right")!=-1) func();
-			}
+//处理触摸事件
+//触摸开始
+canvas.addEventListener('touchstart', function (e) {
+	for(var i=0;i< e.touches.length;i++){
+		var touch=touches[i];
+		ctx.beginPath();//画布中开辟新的子路径集合,把当前的点设置为 (0,0)
+		ctx.arc(touch.pageX,touch.pageY,20,0,2*Math.PI,true);//使用一个中心点和半径，为一个画布的当前子路径添加一条弧。
+		ctx.fill();//填充路径
+		ctx.stroke();//绘制路径
+		console.log('touchstart:'+touch.pageX);
+		if(touch.pageX<150){
+			keysDown[37]=true;//左箭头
+		}else{
+			keysDown[39]=true;//右箭头
 		}
-		else if(Math.abs(changeY)>Math.abs(changeX)&&Math.abs(changeX)>init.x){
-			//上下事件
-			if(changeY > 0) {
-				if(type.indexOf("top")!=-1) func();
-			}else{
-				if(type.indexOf("down")!=-1) func();
-			}
-		}
-		else if(Math.abs(changeX)<init.x && Math.abs(changeY)<init.y){
-			eTime = new Date().getTime();
-			//点击事件，此处根据时间差细分下
-			if((eTime - sTime) > 300) {
-				if(type.indexOf("long")!=-1) func(); //长按
-			}
-			else {
-				if(type.indexOf("click")!=-1) func(); //当点击处理
-			}
-		}
-		if(type.indexOf("end")!=-1) func();
-	}, false);
-};
+	}
+},false);
+
+//触摸结束
+canvas.addEventListener('touchend', function (e) {
+	delete keysDown[39];//右箭头
+	delete keysDown[37];//左箭头
+	console.log('touchend');
+},false);
+
+
+
+
+
+
+
+
 
 
 
