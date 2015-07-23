@@ -85,6 +85,15 @@ var reset = function () {
         ybs[i].init();
     }
 }
+//拖动角色
+canvas.addEventListener('tuochmove',function(event){
+	//阻止滚动
+	event.preventDefault();
+	//如果只有一个手指
+	if(event.targetTouches.length==1){
+ 		var touch=event.targetTouches[0];
+ 		zcm.x=touch.pageX;
+},false);
 //主函数
 var main=function(){
 	//渲染画布
