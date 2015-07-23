@@ -93,6 +93,7 @@ canvas.addEventListener('tuochmove',function(event){
 	if(event.targetTouches.length==1){
  		var touch=event.targetTouches[0];
  		zcm.x=touch.pageX;
+		}
 },false);
 //主函数
 var main=function(){
