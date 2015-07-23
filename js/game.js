@@ -49,7 +49,7 @@ function yb(){
 yb.prototype.init = function(){
 	this.speed = 3;
 	this.y = -canvas.height * 2 * Math.random();
-	this.x = (canvas.width+50) * Math.random()-33;
+	this.x = (canvas.width+50) * Math.random()-25;
 }
 var ybs = [];
 //时间，元宝数量，分数
