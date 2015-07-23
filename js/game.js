@@ -40,6 +40,7 @@ zcmImage.src="img/zcm.png";
     y: 0
 
 };
+ //元宝
 function yb(){
      var speed=5,
         x=0;
@@ -51,14 +52,18 @@ yb.prototype.init = function(){
 	this.x = (canvas.width+50) * Math.random()-33;
 }
 var ybs = [];
- //元宝
+//时间，元宝数量，分数
+var ybsl=5;
+
 
 //渲染画布
 var render =function(){
 	ctx.fillStyle='rgb(32,147,240)';
 	ctx.fillRect(0,0,window.width,height);
 	if(ybReady){
-		ctx.drawImage(ybImage,ybs[i].x,ybs[i].y);
+		for(var i=0;i<ybsl;i++){
+			ctx.drawImage(ybImage,ybs[i].x,ybs[i].y);
+		}
 	}
 	else{
 		console.log(ybReady+'加载失败');
@@ -75,7 +80,7 @@ var reset = function () {
     zcm.x = canvas.width / 2 - 89;//猫居中
     zcm.y = canvas.height - 111;
 
-    for (var i = 0,ybsl=5;i < ybsl; i++) {
+    for (var i = 0;i < ybsl; i++) {
         ybs[i] = new yb();
         ybs[i].init();
     }
