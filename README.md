@@ -1,4 +1,4 @@
-# 接元宝
+﻿# 接元宝
 
 # 「接元宝」游戏说明
 
@@ -106,6 +106,14 @@
 - 元宝随机掉落由[Yuyao](https://github.com/yuyao1994)负责。
 - 一个可移动的角色由[少女？](https://github.com/goodluckforever)负责。
 - 碰撞检测由[Qiudaoyu](https://github.com/iwillbe)负责。
+	function collision(yb, zcm) {//两个对象yb,zcm
+    if (yb.y > (canvas.height - 100)) {//yb落入底部再判断
+        if (Math.abs(zcm.x - yb.x) < 80) {//两者x坐标差小于80则有效碰撞
+            return true;
+        }
+    }
+    return false;
+}
 - 游戏界面由[LaoTan](https://github.com/laotanAndzijun)负责。
 - 扩展由[Brant](https://github.com/Brant-Ma)负责。
 
