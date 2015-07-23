@@ -3,12 +3,16 @@
  * 根据 http://www.cnblogs.com/Wayou/p/how-to-make-a-simple-html5-canvas-game.html 改编
  * 1.加载角色
  */
-//
+
+
 //获取canvas对象
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 300;
-canvas.height = 480;
+
+var width=window.innerWidth;
+var height=window.innerHeight
+canvas.width = width;
+canvas.height = height;
 document.body.appendChild(canvas);
 //元宝图片
 var ybReady=false;
@@ -24,27 +28,61 @@ var zcmReady=false;
 var zcmImage=new Image();
 
 //页面加载
-zcmImage.onload=function(){	
+zcmImage.onload=function(){
 	zcmReady=true;
 };
 zcmImage.src="img/zcm.png";
+//游戏对象
+//招财猫
+var zcm = {
+	speed: 200,
+	x: 0,
+	y: 0
+
+};
+//元宝
+function yb(){
+	var speed=5,
+		x=0;
+	y=0;
+}
+yb.prototype.init = function(){
+	this.speed = 3;
+	this.y = -canvas.height * 2 * Math.random();
+	this.x = (canvas.width+50) * Math.random()-33;
+}
+var ybs = [];
+//时间，元宝数量，分数
+var ybsl=5;
 
 
 //渲染画布
 var render =function(){
 	ctx.fillStyle='rgb(32,147,240)';
-	ctx.fillRect(0,0,300,480);
+	ctx.fillRect(0,0,window.width,height);
 	if(ybReady){
-		ctx.drawImage(ybImage,0,0);
+		for(var i=0;i<ybsl;i++){
+			ctx.drawImage(ybImage,ybs[i].x,ybs[i].y);
+		}
 	}
 	else{
 		console.log(ybReady+'加载失败');
 	}
 	if(zcmReady){
-		ctx.drawImage(zcmImage,100,100);
+		ctx.drawImage(zcmImage,zcm.x,zcm.y);
 	}
 	else{
 		console.log('加载失败');
+	}
+}
+//游戏初始化
+var reset = function () {
+	zcm.x = canvas.width / 2 - 89;//猫居中
+	zcm.y = canvas.height - 111;
+
+	for (var i = 0;i < ybsl; i++) {
+		ybs[i] = new yb();
+		ybs[i].init();
 	}
 }
 //主函数
@@ -55,3 +93,75 @@ var main=function(){
 window.onload=function(){
 	main();
 }
+reset();
+
+
+//触摸屏幕事件
+
+var touchFunc = function(obj,type,func) {
+	//滑动范围在5x5内则做点击处理，s是开始，e是结束
+	var init = {x:5,y:5,sx:0,sy:0,ex:0,ey:0};
+	var sTime = 0, eTime = 0;
+	type = type.toLowerCase();
+
+	obj.addEventListener("touchstart",function(){
+		sTime = new Date().getTime();
+		init.sx = event.targetTouches[0].pageX;
+		init.sy = event.targetTouches[0].pageY;
+		init.ex = init.sx;
+		init.ey = init.sy;
+		if(type.indexOf("start") != -1) func();
+	}, false);
+
+	obj.addEventListener("touchmove",function() {
+		event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动
+		init.ex = event.targetTouches[0].pageX;
+		init.ey = event.targetTouches[0].pageY;
+		if(type.indexOf("move")!=-1) func();
+	}, false);
+
+	obj.addEventListener("touchend",function() {
+		var changeX = init.sx - init.ex;
+		var changeY = init.sy - init.ey;
+		if(Math.abs(changeX)>Math.abs(changeY)&&Math.abs(changeY)>init.y) {
+			//左右事件
+			if(changeX > 0) {
+				if(type.indexOf("left")!=-1) func();
+			}else{
+				if(type.indexOf("right")!=-1) func();
+			}
+		}
+		else if(Math.abs(changeY)>Math.abs(changeX)&&Math.abs(changeX)>init.x){
+			//上下事件
+			if(changeY > 0) {
+				if(type.indexOf("top")!=-1) func();
+			}else{
+				if(type.indexOf("down")!=-1) func();
+			}
+		}
+		else if(Math.abs(changeX)<init.x && Math.abs(changeY)<init.y){
+			eTime = new Date().getTime();
+			//点击事件，此处根据时间差细分下
+			if((eTime - sTime) > 300) {
+				if(type.indexOf("long")!=-1) func(); //长按
+			}
+			else {
+				if(type.indexOf("click")!=-1) func(); //当点击处理
+			}
+		}
+		if(type.indexOf("end")!=-1) func();
+	}, false);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
