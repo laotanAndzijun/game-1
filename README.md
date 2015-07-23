@@ -101,11 +101,11 @@
 
 ##分工
 
-- 步骤一由[Kai](https://github.com/jackYin888)负责。
-- 步骤二由[Langrren](https://github.com/langrren)负责。
-- 步骤三由[Yuyao](https://github.com/yuyao1994)负责。
-- 步骤四由[少女？](https://github.com/goodluckforever)负责。
-- 步骤五由[Qiudaoyu](https://github.com/iwillbe)负责。
-- 步骤六由[LaoTan](https://github.com/laotanAndzijun)负责。
-- 步骤七由[Brant](https://github.com/Brant-Ma)负责。
+- canvas构建角色由[Kai](https://github.com/jackYin888)负责。
+- 移动端适配由[Langrren](https://github.com/langrren)负责。
+- 元宝随机掉落由[Yuyao](https://github.com/yuyao1994)负责。
+- 一个可移动的角色由[少女？](https://github.com/goodluckforever)负责。
+- 碰撞检测由[Qiudaoyu](https://github.com/iwillbe)负责。
+- 游戏界面由[LaoTan](https://github.com/laotanAndzijun)负责。
+- 扩展由[Brant](https://github.com/Brant-Ma)负责。
 
