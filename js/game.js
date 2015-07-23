@@ -58,13 +58,13 @@ var render =function(){
 	ctx.fillStyle='rgb(32,147,240)';
 	ctx.fillRect(0,0,window.width,height);
 	if(ybReady){
-		ctx.drawImage(ybImage,0,0);
+		ctx.drawImage(ybImage,ybs[i].x,ybs[i].y);
 	}
 	else{
 		console.log(ybReady+'加载失败');
 	}
 	if(zcmReady){
-		ctx.drawImage(zcmImage,100,100);
+		ctx.drawImage(zcmImage,zcm.x,zcm.y);
 	}
 	else{
 		console.log('加载失败');
