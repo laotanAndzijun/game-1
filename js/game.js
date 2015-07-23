@@ -75,7 +75,7 @@ var reset = function () {
     zcm.y = canvas.height - 111;
 
     for (var i = 0,ybsl=5;i < ybsl; i++) {
-        ybs[i] = new c_yb();
+        ybs[i] = new yb();
         ybs[i].init();
     }
 }
