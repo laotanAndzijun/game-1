@@ -3,25 +3,7 @@
  * 根据 http://www.cnblogs.com/Wayou/p/how-to-make-a-simple-html5-canvas-game.html 改编
  * 1.加载角色
  */
- //招财猫
- var zcm = {
-    speed: 200,
-    x: 0,
-    y: 0
-
-};
-function yb(){
-     var speed=5,
-        x=0;
-        y=0;
-}
-yb.prototype.init = function(){
-	this.speed = 3;
-	this.y = -canvas.height * 2 * Math.random();
-	this.x = (canvas.width+50) * Math.random()-33;
-}
-var ybs = [];
- //元宝
+ 
  
 //获取canvas对象
 var canvas = document.createElement("canvas");
@@ -50,7 +32,26 @@ zcmImage.onload=function(){
 	zcmReady=true;
 };
 zcmImage.src="img/zcm.png";
+//游戏对象
+//招财猫
+ var zcm = {
+    speed: 200,
+    x: 0,
+    y: 0
 
+};
+function yb(){
+     var speed=5,
+        x=0;
+        y=0;
+}
+yb.prototype.init = function(){
+	this.speed = 3;
+	this.y = -canvas.height * 2 * Math.random();
+	this.x = (canvas.width+50) * Math.random()-33;
+}
+var ybs = [];
+ //元宝
 
 //渲染画布
 var render =function(){
