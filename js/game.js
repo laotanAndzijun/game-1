@@ -84,7 +84,7 @@ var reset = function () {
         ybs[i] = new yb();
         ybs[i].init();
     }
-
+}
 //拖动角色
 addEventListener('touchstart',touchSatrtFunc,false);
 function touchSatrtFunc(e) {  
