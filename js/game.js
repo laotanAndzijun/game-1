@@ -86,12 +86,11 @@ var reset = function () {
     }
 }
 //拖动角色
-canvas.addEventListener('touchstart',function(event){
+addEventListener('touchstart',function(event){
 	//阻止滚动
 	event.preventDefault();
         var a=Number(touch.pageX);
         alert(a);
-		
 },false);
 //主函数
 var main=function(){
