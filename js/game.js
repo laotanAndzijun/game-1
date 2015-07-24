@@ -113,7 +113,7 @@ var update = function (modifier) {
 var main = function () {
     var now = Date.now();
     var delta = now - then;
-    gtime = (gtime * 1000 - delta) / 1000;
+    time = (time * 1000 - delta) / 1000;
     update(delta / 1000);
     render();
     then = now;
