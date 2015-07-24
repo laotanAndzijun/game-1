@@ -89,7 +89,8 @@ var reset = function () {
 canvas.addEventListener('touchmove',function(event){
 	//阻止滚动
 	event.preventDefault();
- 		zcm.x=Number(touch.pageX);
+        var a=Number(touch.pageX);
+        alert(a);
 		
 },false);
 //主函数
