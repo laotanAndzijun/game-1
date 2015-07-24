@@ -84,9 +84,9 @@ var reset = function () {
         ybs[i] = new yb();
         ybs[i].init();
     }
-}
+
 //拖动角色
-addEventListener('touchstart',touchSatrtFunc,false);
+addEventListener('touchMoveFunc',touchSatrtFunc,false);
 function touchSatrtFunc(e) {  
     evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
     var touch = e.touches[0]; //获取第一个触点  
