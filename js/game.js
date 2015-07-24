@@ -53,7 +53,7 @@ yb.prototype.init = function(){
 }
 var ybs = [];
 //时间，元宝数量，分数
-var ybsl=5;
+var time = 0, score = 0 , ybsl = 5, stop = true;
 
 
 //渲染画布
@@ -98,7 +98,7 @@ function touchSatrtFunc(e) {
 
 //更新游戏
 var update = function (modifier) {
-    // console.log('更新游戏');
+    console.log('更新游戏');
     if (zcm.x>x) { // 猫的左侧
         zcm.x -= zcm.speed * modifier;
     }
