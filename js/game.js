@@ -86,7 +86,7 @@ var reset = function () {
     }
 }
 //拖动角色
-canvas.addEventListener('tuochmove',function(event){
+canvas.addEventListener('touchmove',function(event){
 	//阻止滚动
 	event.preventDefault();
  		zcm.x=Number(touch.pageX);
