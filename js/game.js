@@ -110,11 +110,18 @@ var update = function (modifier) {
 
 }
 //主函数
-var main=function(){
-	//渲染画布
-	render();
-}
-window.onload=function(){
-	main();
-}
+var main = function () {
+    var now = Date.now();
+    var delta = now - then;
+    gtime = (gtime * 1000 - delta) / 1000;
+    update(delta / 1000);
+    render();
+    then = now;
+    // 立即调用主函数
+    requestAnimationFrame(main);
+};
+
+var then = Date.now();
 reset();
+
+main();
