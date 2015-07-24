@@ -102,14 +102,11 @@ function touchSatrtFunc(e) {
    
 
 
-//主函数
-var main = function () {
-    
-    // 立即调用主函数
-    requestAnimationFrame(main);
-};
-
-
-reset();
-
-main();
+var main=function(){		 
+ 	//渲染画布		 	
+ 	render();		 
+ }		 
+ window.onload=function(){	
+ 	main();		 	
+ }		 
+ reset();
