@@ -90,10 +90,11 @@ addEventListener('touchstart',touchSatrtFunc,false);
 function touchSatrtFunc(e) {  
     e.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
     var touch = e.touches; 
-    console.log(touch)//获取第一个触点  
+     
     var x = Number(touch.pageX); //页面触点X坐标  
     var y = Number(touch.pageY); //页面触点Y坐标  
     //记录触点初始位置  
+    console.log(touch,x,y)//获取第一个触点 
     
 } 
 
