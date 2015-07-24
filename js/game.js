@@ -105,7 +105,7 @@ function touchSatrtFunc(e,modifier) {
 
    
 
-}
+
 //主函数
 var main = function () {
     var now = Date.now();
