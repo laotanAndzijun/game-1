@@ -3,7 +3,9 @@
  * 根据 http://www.cnblogs.com/Wayou/p/how-to-make-a-simple-html5-canvas-game.html 改编
  * 1.加载角色
  */
- 
+//获取屏幕宽度
+var w=window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+var h=window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
  
 //获取canvas对象
 var canvas = document.createElement("canvas");
@@ -86,14 +88,19 @@ var reset = function () {
     }
 }
 //拖动角色
-addEventListener('touchstart',touchSatrtFunc,false);
+canvas.addEventListener('touchstart',touchSatrtFunc,false);
 function touchSatrtFunc(event) {
     var event = event||window.event;
     event.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
-    
-     
-    zcm.x = event.changedTouches[0].clientX; //页面触点X坐标  
-    
+ 
+    zcm.x = event.changedTouches[0].clientX;//页面触点X坐标 
+    zcm.y=h-109;
+    if(zcm.x<=0){
+   	zcm.x=0
+   } 
+   if(zcm.x>=w-87){
+   	zcm.x=w-87;
+   }
     
 } 
 
