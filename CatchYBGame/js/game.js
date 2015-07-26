@@ -3,6 +3,16 @@
  * 根据 http://www.cnblogs.com/Wayou/p/how-to-make-a-simple-html5-canvas-game.html 改编
  * TODO 把按键玩法改变为触摸玩法
  */
+
+//获取屏幕宽度
+var w=window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+var h=window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+
+ //设置按钮的位置
+var btn=document.getElementById("btn");
+btn.style.left=w/2.2+"px";
+btn.style.top=h/2+"px";
+
 // 游戏对象-招财猫
 var zcm = {
     speed: 200,
@@ -15,12 +25,12 @@ var good={
 }
 // 游戏对象-元宝类
 function c_yb() {
-    var speed = 3,
+    var speed = 10,
         x = 0,
         y = 0;
 };
 c_yb.prototype.init = function () {
-    this.speed = 3;
+    this.speed = 10;
     this.y = -canvas.height * 2 * Math.random();
     this.x = (canvas.width+100) * Math.random() - 5;
 }
@@ -42,9 +52,59 @@ var bomB=new bom();
 //游戏对象-时间、分数
 var gtime = 0, gscore = 0 , ybsl = 5, gstop = true,bomb=1;
 
-//获取屏幕宽度
-var w=window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
-var h=window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+//touch事件
+document.addEventListener('touchstart',touch, false);
+document.addEventListener('touchmove',touch, false);
+document.addEventListener('touchend',touch, false);
+     
+    function touch (event){
+        var event = event || window.event;
+        switch(event.type){
+            case "touchstart":
+                event.preventDefault();
+                // oInp.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                // can.style.left=event.changedTouches[0].clientX+"px";
+                // can.style.top=event.changedTouches[0].clientY+"px";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+            case "touchend":
+                event.preventDefault();
+                // oInp.innerHTML = "<br>Touch end (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                 if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+            case "touchmove":
+                event.preventDefault();
+                // oInp.innerHTML = "<br>Touch moved (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                //    can.style.left=event.changedTouches[0].clientX+"px";
+                // can.style.top=event.changedTouches[0].clientY+"px";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                 if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+        }
+         
+    }
+
+
 
 // Create the canvas
 var canvas = document.createElement("canvas");
@@ -153,12 +213,20 @@ var update = function (modifier) {
         gstop = true;
         ybImage.src = " ";//让元宝消失；
         bomImage.src=" ";
-        if (38 in keysDown) { // 用户按的是
-            reset();
-        }
+        // if (38 in keysDown) { // 用户按的是
+        //     
+        // }
+        btn.style.display="block";
     }
 
 }
+
+btn.addEventListener("click",function(){
+             btn.style.display="none";
+             ybImage.src="imgs/yb.png";
+             bomImage.src="imgs/bomb.png"; 
+             reset();
+    });
 //画出所有物体
 var render = function () {
     //背景
@@ -186,8 +254,8 @@ var render = function () {
             gradient.addColorStop("1.0","red");
         ctx.fillStyle = gradient;
         ctx.font = "30px Helvetica";
-        ctx.fillText("你的得分为："+gscore, canvas.width/2,canvas.width/5);
-        ctx.fillText("哎哟，不错哦!",canvas.width/2, canvas.width/4);
+        // ctx.fillText("你的得分为："+gscore, canvas.width/2,canvas.width/5);
+        // ctx.fillText("哎哟，不错哦!",canvas.width/2, canvas.width/4);
         // ctx.fillText("按↑重新开始^_^", canvas.width/2, canvas.width/4.5);
 
     } else {
