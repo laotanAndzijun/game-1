@@ -87,14 +87,13 @@ var reset = function () {
 }
 //拖动角色
 addEventListener('touchstart',touchSatrtFunc,false);
-function touchSatrtFunc(e) {  
-    e.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
-    var touch = e.touches[0]; 
+function touchSatrtFunc(event) {
+    var event = event||window.event;
+    event.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
+    
      
-    var x = touch.pageX; //页面触点X坐标  
-    var y = touch.pageY; //页面触点Y坐标  
-    //记录触点初始位置  
-    console.log(touch,x,y)//获取第一个触点 
+    zcm.x = event.changedTouches[0].pageX; //页面触点X坐标  
+    
     
 } 
 
