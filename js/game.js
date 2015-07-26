@@ -88,21 +88,56 @@ var reset = function () {
     }
 }
 //拖动角色
-document.addEventListener('touchstart',touchSatrtFunc,false);
-function touchSatrtFunc(event) {
-    var event = event||window.event;
-    event.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
- 
-    zcm.x = event.changedTouches[0].clientX;//页面触点X坐标 
-    zcm.y=h-109;
-    if(zcm.x<=0){
-   	zcm.x=0
-   } 
-   if(zcm.x>=w-87){
-   	zcm.x=w-87;
-   }
-    
-} 
+document.addEventListener('touchstart',touch, false);
+document.addEventListener('touchmove',touch, false);
+document.addEventListener('touchend',touch, false);
+     
+    function touch (event){
+        var event = event || window.event;
+        switch(event.type){
+           case "touchstart":
+               event.preventDefault();
+                // oInp.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                // can.style.left=event.changedTouches[0].clientX+"px";
+                // can.style.top=event.changedTouches[0].clientY+"px";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+            case "touchend":
+                event.preventDefault();
+                // oInp.innerHTML = "<br>Touch end (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                 if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+            case "touchmove":
+                event.preventDefault();
+                // oInp.innerHTML = "<br>Touch moved (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                //    can.style.left=event.changedTouches[0].clientX+"px";
+                // can.style.top=event.changedTouches[0].clientY+"px";
+                zcm.x=event.changedTouches[0].clientX+43.5;
+                zcm.y=h-109;
+                 if(zcm.x<=0){
+                   zcm.x=0;
+                }
+                if(zcm.x>=w-87){
+                	zcm.x=w-87;
+                }
+                break;
+        }
+         
+    }
 
 
 
