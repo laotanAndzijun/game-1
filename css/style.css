@@ -4,11 +4,14 @@ body{
   margin: 0;
   padding: 0;
   }
-
-canvas{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: block;
-  }
+#btn{
+	font-weight: 700;
+	font-size: 25px;
+	font-family: "微软雅黑";
+	border-radius: 10px;
+	border-style: solid;
+	border-color: yellow;
+	background: green;
+	position: absolute;
+	padding: 20px 30px;
+}
