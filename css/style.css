@@ -1,9 +1,8 @@
 body{
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  }
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
 #btn{
 	font-weight: 700;
 	font-size: 25px;
