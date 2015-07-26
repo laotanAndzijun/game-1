@@ -88,7 +88,7 @@ var reset = function () {
     }
 }
 //拖动角色
-canvas.addEventListener('touchstart',touchSatrtFunc,false);
+document.addEventListener('touchstart',touchSatrtFunc,false);
 function touchSatrtFunc(event) {
     var event = event||window.event;
     event.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
