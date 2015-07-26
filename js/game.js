@@ -92,7 +92,7 @@ function touchSatrtFunc(event) {
     event.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
     
      
-    zcm.x = event.changedTouches[0].pageX; //页面触点X坐标  
+    zcm.x = event.changedTouches[0].clientX; //页面触点X坐标  
     
     
 } 
