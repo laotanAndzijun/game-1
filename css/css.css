@@ -1,0 +1,16 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+#btn{
+	font-weight: 700;
+	font-size: 25px;
+	font-family: "微软雅黑";
+	border-radius: 10px;
+	border-style: solid;
+	border-color: yellow;
+	background: green;
+	position: absolute;
+	padding: 20px 30px;
+}

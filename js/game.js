@@ -119,14 +119,14 @@ var zcmImage = new Image();
 zcmImage.onload = function () {
     zcmReady = true;
 };
-zcmImage.src = "imgs/zcm.png";
+zcmImage.src = "img/zcm.png";
 // 元宝图片
 var ybReady = false;
 var ybImage = new Image();
 ybImage.onload = function () {
     ybReady = true;
 };
-ybImage.src = "imgs/yb.png";
+ybImage.src = "img/yb.png";
 
 //炸弹图片
 var bomReady=false;
@@ -134,7 +134,7 @@ var bomImage=new Image();
 bomImage.onload=function(){
     bomReady=true;
 }
-bomImage.src="imgs/bomb.png";
+bomImage.src="img/bomb.png";
 
 //处理按键
 var keysDown = {};
@@ -223,8 +223,8 @@ var update = function (modifier) {
 
 btn.addEventListener("click",function(){
              btn.style.display="none";
-             ybImage.src="imgs/yb.png";
-             bomImage.src="imgs/bomb.png"; 
+             ybImage.src="img/yb.png";
+             bomImage.src="img/bomb.png"; 
              reset();
     });
 //画出所有物体
