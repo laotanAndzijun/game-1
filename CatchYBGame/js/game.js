@@ -254,7 +254,7 @@ var render = function () {
             gradient.addColorStop("1.0","red");
         ctx.fillStyle = gradient;
         ctx.font = "30px Helvetica";
-        // ctx.fillText("你的得分为："+gscore, canvas.width/2,canvas.width/5);
+         ctx.fillText("你的得分为："+gscore, canvas.width/2,canvas.height/5);
         // ctx.fillText("哎哟，不错哦!",canvas.width/2, canvas.width/4);
         // ctx.fillText("按↑重新开始^_^", canvas.width/2, canvas.width/4.5);
 
