@@ -1,4 +1,10 @@
 ﻿# 接元宝
+# https://tea.xyz/what-is-this-file
+---
+version: 1.0.0
+codeOwners:
+  - '0x289CAfD6c59afe30F45Fe8cDE4e509a9f9917Ad1'
+quorum: 1
 
 # 「接元宝」游戏说明
 
